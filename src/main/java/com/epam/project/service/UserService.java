@@ -7,6 +7,6 @@ public class UserService {
     private static final String USER_PASSWORD = "user.password";
 
     public static User withCredentialsFromProperty() {
-        return new User(TestDataReader.getTestData(USER_EMAIL), TestDataReader.getTestData(USER_PASSWORD));
+        return new User(TestDataReader.getTestData(USER_EMAIL), System.getenv(USER_PASSWORD));
     }
 }
