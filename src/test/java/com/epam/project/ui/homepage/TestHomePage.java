@@ -12,10 +12,9 @@ import org.testng.annotations.BeforeTest;
 import static com.epam.project.framework.properties.EnvironmentProperty.getEnv;
 
 public class TestHomePage {
-     HomeScreen homeScreen = new HomeScreen();
-     EmailGenerationPage emailGenerationPage = new EmailGenerationPage();
-     User user = UserService.withCredentialsFromProperty();
-     Login login = new Login();
+    HomeScreen homeScreen = new HomeScreen();
+    EmailGenerationPage emailGenerationPage = new EmailGenerationPage();
+    User user = UserService.withCredentialsFromProperty();
 
     @BeforeTest
     public void setUp() throws InterruptedException {

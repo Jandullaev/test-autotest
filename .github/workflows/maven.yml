@@ -32,7 +32,13 @@ jobs:
 
     - name: Create testdata.properties
       run: echo "${{ secrets.TESTDATA_PROPERTIES }}" > src/main/resources/testdata.properties
+    - name:
+       Debug: List files
+      run: ls -alh src/main/resources
 
+    - name:
+       Debug: Show file content
+      run: cat src/main/resources/testdata.properties
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
