@@ -4,16 +4,14 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 public class TestDataReader {
-    private static final ResourceBundle resourceBundle;
+    private static ResourceBundle resourceBundle;
 
     static {
-        ResourceBundle tempBundle;
         try {
-            tempBundle = ResourceBundle.getBundle("testdata");
+            resourceBundle = ResourceBundle.getBundle("testdata");
         } catch (MissingResourceException e) {
-            tempBundle = null; // Handle the case where the properties file is missing
+            resourceBundle = null; // Handle the absence of the properties file
         }
-        resourceBundle = tempBundle;
     }
 
     public static String getTestData(String key) {
