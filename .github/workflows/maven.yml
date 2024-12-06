@@ -20,10 +20,11 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Set environment variables
+      - name: Decode testdata.properties file
         env:
-          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: echo "USER_PASSWORD=${USER_PASSWORD}" >> $GITHUB_ENV
+            TESTDATA_PROPERTIES_BASE64: ${{ secrets.TESTDATA_PROPERTIES_BASE64 }}
+        run: |
+            echo $TESTDATA_PROPERTIES_BASE64 | base64 -d > ./src/main/resources/testdata.properties
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
